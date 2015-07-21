@@ -87,11 +87,11 @@ Gulp will help you compile the code in ***js\_source\_folder*** and store the co
 The following list the modules that is required:
 
 - **webpack**
-- **bable-loader**
+- **babel-loader**
 
 ```bash
 npm install -g webpack
-npm install --save-dev bable-loader
+npm install --save-dev babel-loader
 ```
 
 ### Config webpack.config.js
@@ -105,12 +105,13 @@ module.exports = {
 		filename: "bundle.js"
 	},
 	module: {
-		loaders: {
-			test: /\.jsx?$/,
-			exclude: /(node_modules|bower_components)/,
-			loader: 'babel',	
-			
-		}
+		loaders: [
+			{
+				test: /\.jsx?$/,
+				exclude: /(node_modules|bower_components)/,
+				loader: 'babel',	
+			}		
+		]
 	}
 };
 ```
